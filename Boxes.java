@@ -1,7 +1,8 @@
+import java.util.Scanner;
+
 public class Boxes {
     public static void main(String[] args) {
 
-        
         /* ¡Nos mudamos de piso! vamos a crear un pequeño programa que nos ayude a saber en que caja pusimos las siguientes cosas:
 
         Caja 0. Libros
@@ -12,11 +13,25 @@ public class Boxes {
         Caja 5. Cosas de verano
         Caja 6. Cosas de invierno
         */
-
+        System.out.println("\uD83D\uDCDA\uD83C\uDF74\uD83D\uDEC1\uD83D\uDC5C\uD83D\uDC5F☀\uFE0F❄\uFE0F ------Mooving Assistant------ \uD83D\uDCD6\uD83C\uDF7D\uFE0F\uD83E\uDDF4\uD83C\uDF92\uD83D\uDC60\uD83C\uDFD6\uFE0F\uD83E\uDDE3");
         //Crea un array con las cosas que contienen las cajas
-
+        String[] boxes = {"Libros", "Utensilios de cocina", "Artículos de baño", "Bolsos", "Zapatos", "Cosas de verano", "Cosas de invierno"};
         //Pregunta al usuario lo siguiente: Hola, soy tu asistente de la organización ¿Qué deseas buscar? (la respuesta deberá aparecer en la terminal en la misma línea)
-
-        //Crea un programa que te devuelva lo siguiente: <cosas> están en la caja <índice> en el caso de no existir que devuelva: <cosas> no las empacaste, oops! 
+        Scanner assistant = new Scanner(System.in);
+        System.out.print("Hola, soy tu asistente de la organización ¿Qué deseas buscar? ");
+        String objects = assistant.nextLine();
+        //Crea un programa que te devuelva lo siguiente: <cosas> están en la caja <índice> en el caso de no existir que devuelva: <cosas> no las empacaste, oops!
+        boolean found = false;
+        for (int i = 0; i < boxes.length; i++) {
+            if (objects.equalsIgnoreCase(boxes[i])) {
+                System.out.println(objects + " están en la caja " + i);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println(objects + " no las empacaste, oops!");
+        }
+        assistant.close();
     }
 }
