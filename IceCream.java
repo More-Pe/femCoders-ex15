@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class IceCream {
     public static void main(String[] args) {
         
@@ -21,14 +23,32 @@ public class IceCream {
 
             ¡Listo, tenemos tu orden! Acércate al mostrador y Robotina te entregará tu helado
         */
-
+        Scanner icecream = new Scanner(System.in);
+        System.out.println("\uD83C\uDF66 \uD83C\uDF66 \uD83C\uDF66 \uD83C\uDF66 Bienvenido a 'El Esquimal' \uD83C\uDF66 \uD83C\uDF66 \uD83C\uDF66 \uD83C\uDF66");
+        System.out.print("¿Cuántas bolas de halado quieres?: ");
+        int numFlavors = icecream.nextInt();
+        icecream.nextLine();
         // La cantidad y los sabores escoge el usuario
-
         //Los índices 0, 1 y 2 (y los que sean) no lo escribirá el usuario, saldrá automáticamente según la cantidad de bolas de helado que haya escogido el usuario. Primero saldrá 0. y esperará a que el usuario escriba el primer sabor y después del "enter" aparecerá el 1. para que el usuario escriba el segundo sabor y así sucesivamente.
-
         //Has de usar un array para almacenar los sabores de helado y un bucle para imprimirlos.
-
         //Mira en el ejemplo los saltos de línea que has de tener.
-    
+        String[] flavors = new String[numFlavors];
+        System.out.println("\n¡Perfecto! Ahora escoge de qué sabor quieres cada helado:");
+        for (int i = 0; i < numFlavors; i++){
+            System.out.print("\t" + i + ". ");
+            flavors[i] = icecream.nextLine();
+        }
+        System.out.println("\n¡Gracias por tu orden! Has pedido los siguientes sabores:");
+        for (int i = 0; i < numFlavors; i++){
+            System.out.print("\t" + i + ". " + flavors[i] + "\n");
+        }
+        System.out.println("\n¿Es correcto? presiona intro para continuar");
+        String intro = icecream.nextLine();
+        if (intro.isEmpty()){
+            System.out.println("\n¡Listo, tenemos tu orden! Acércate al mostrador y Robotina \uD83E\uDD16 te entregará tu helado.");
+        } else {
+            System.out.println("\nLo sentimos, no hemos podido tomar su pedido.");
+        }
+        icecream.close();
     }
 } 
